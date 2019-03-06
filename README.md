@@ -1,1 +1,1 @@
-# uniCentaEcPOS
+# OpenBravo uniCenta EC
