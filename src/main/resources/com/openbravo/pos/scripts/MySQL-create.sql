@@ -144,14 +144,14 @@ CREATE TABLE `csvimport` (
 CREATE TABLE `customers` (
 	`id` varchar(255) NOT NULL,
 	`searchkey` varchar(255) NOT NULL,
-	`taxid` varchar(255) default NULL,
+	`taxid` varchar(255) NOT NULL,
 	`name` varchar(255) NOT NULL,
 	`taxcategory` varchar(255) default NULL,
 	`card` varchar(255) default NULL,
 	`maxdebt` double NOT NULL default '0',
 	`address` varchar(255) default NULL,
 	`address2` varchar(255) default NULL,
-	`postal` varchar(255) default NULL,
+	`postal` varchar(255) NOT NULL,
 	`city` varchar(255) default NULL,
 	`region` varchar(255) default NULL,
 	`country` varchar(255) default NULL,
@@ -927,29 +927,31 @@ INSERT INTO resources(id, name, restype, content) VALUES('78', 'img.posapps', 1,
 INSERT INTO resources(id, name, restype, content) VALUES('79', 'Cash.Close', 0, $FILE{/com/openbravo/pos/templates/Cash.Close.xml});
 
 -- ADD CATEGORIES
-INSERT INTO categories(id, name) VALUES ('000', 'Category Standard');
+INSERT INTO categories(id, name) VALUES ('000', 'Categoria Standard');
 
 -- ADD TAXCATEGORIES
 /* 002 added 31/01/2017 00:00:00. */
-INSERT INTO taxcategories(id, name) VALUES ('000', 'Tax Exempt');
-INSERT INTO taxcategories(id, name) VALUES ('001', 'Tax Standard');
-INSERT INTO taxcategories(id, name) VALUES ('002', 'Tax Other');
+INSERT INTO taxcategories(id, name) VALUES ('000', 'IVA 0');
+INSERT INTO taxcategories(id, name) VALUES ('001', 'IVA 12');
 
 -- ADD TAXES
 /* 002 added 31/01/2017 00:00:00. */
-INSERT INTO taxes(id, name, category, custcategory, parentid, rate, ratecascade, rateorder) VALUES ('000', 'Tax Exempt', '000', NULL, NULL, 0, FALSE, NULL);
-INSERT INTO taxes(id, name, category, custcategory, parentid, rate, ratecascade, rateorder) VALUES ('001', 'Tax Standard', '001', NULL, NULL, 0.20, FALSE, NULL);
-INSERT INTO taxes(id, name, category, custcategory, parentid, rate, ratecascade, rateorder) VALUES ('002', 'Tax Other', '002', NULL, NULL, 0, FALSE, NULL);
+INSERT INTO taxes(id, name, category, custcategory, parentid, rate, ratecascade, rateorder) VALUES ('000', 'IVA 0', '000', NULL, NULL, 0, FALSE, NULL);
+INSERT INTO taxes(id, name, category, custcategory, parentid, rate, ratecascade, rateorder) VALUES ('001', 'IVA 12', '001', NULL, NULL, 0.12, FALSE, NULL);
 
 -- ADD PRODUCTS
-INSERT INTO products(id, reference, code, name, category, taxcat, isservice, display, printto) 
-VALUES ('xxx999_999xxx_x9x9x9', 'xxx999', 'xxx999', '***', '000', '001', 1, '<html><center>***', '1');
-INSERT INTO products(id, reference, code, name, category, taxcat, isservice, display, printto) 
-VALUES ('xxx998_998xxx_x8x8x8', 'xxx998', 'xxx998', '****', '000', '001', 1, '<html><center>****', '1');
+INSERT INTO products(id,reference,code,codetype,name,pricebuy,pricesell,category,taxcat,stockcost,stockvolume,isservice,display,isvprice,isverpatrib,texttip,warranty,stockunits,printto,supplier,uom) 
+VALUES ('0','0','0','CODE128','Producto sin IVA',0,1,'000','000',0,0,0,'<html><center>Producto sin IVA',0,0,'',0,0,'1','0','0');
+INSERT INTO products(id,reference,code,codetype,name,pricebuy,pricesell,category,taxcat,stockcost,stockvolume,isservice,display,isvprice,isverpatrib,texttip,warranty,stockunits,printto,supplier,uom) 
+VALUES ('1','1','1','CODE128','Producto con IVA',0,1,'000','001',0,0,0,'<html><center>Producto con IVA',0,0,'',0,0,'1','0','0');
 
 -- ADD PRODUCTS_CAT
-INSERT INTO products_cat(product) VALUES ('xxx999_999xxx_x9x9x9');
-INSERT INTO products_cat(product) VALUES ('xxx998_998xxx_x8x8x8');
+INSERT INTO products_cat(product) VALUES ('0');
+INSERT INTO products_cat(product) VALUES ('1');
+
+-- ADD Consumidor Final CUSTOMERS
+INSERT INTO customers (id,searchkey,taxid,name,maxdebt,address,address2,postal,firstname,lastname,notes,visible,isvip,discount) 
+VALUES ('9999999999999','9999999999999','9999999999999','Consumidor Final',0,NULL,NULL,'Consumidor Final','Final','Consumidor','',1,0,0);
 
 -- ADD LOCATION
 INSERT INTO locations(id, name, address) VALUES ('0','Location 1','Local');
