@@ -926,6 +926,18 @@ INSERT INTO resources(id, name, restype, content) VALUES('77', 'script.posapps',
 INSERT INTO resources(id, name, restype, content) VALUES('78', 'img.posapps', 1, $FILE{/com/openbravo/pos/templates/img.posapps.png});
 INSERT INTO resources(id, name, restype, content) VALUES('79', 'Cash.Close', 0, $FILE{/com/openbravo/pos/templates/Cash.Close.xml});
 
+-- ADD EMPRESA
+INSERT INTO resources(id, name, restype, content) VALUES('80', 'Empresa.RUC', 0, $FILE{/com/openbravo/pos/templates/Empresa.RUC.txt});
+INSERT INTO resources(id, name, restype, content) VALUES('81', 'Empresa.RazonSocial', 0, $FILE{/com/openbravo/pos/templates/Empresa.RazonSocial.txt});
+INSERT INTO resources(id, name, restype, content) VALUES('82', 'Empresa.NombreComercial', 0, $FILE{/com/openbravo/pos/templates/Empresa.NombreComercial.txt});
+INSERT INTO resources(id, name, restype, content) VALUES('83', 'Empresa.Direccion1', 0, $FILE{/com/openbravo/pos/templates/Empresa.Direccion1.txt});
+INSERT INTO resources(id, name, restype, content) VALUES('84', 'Empresa.Direccion2', 0, $FILE{/com/openbravo/pos/templates/Empresa.Direccion2.txt});
+-- ADD Ambiente de facturación electrónica 1 => Pruebas, 2 => Producción
+INSERT INTO resources(id, name, restype, content) VALUES('85', 'Empresa.Ambiente', 0, $FILE{/com/openbravo/pos/templates/Empresa.Ambiente.txt});
+-- ADD Establecimiento y Punto de Emisión.
+INSERT INTO resources(id, name, restype, content) VALUES('86', 'Empresa.Establecimiento', 0, $FILE{/com/openbravo/pos/templates/Empresa.Establecimiento.txt});
+INSERT INTO resources(id, name, restype, content) VALUES('87', 'Empresa.PuntoEmision', 0, $FILE{/com/openbravo/pos/templates/Empresa.PuntoEmision.txt});
+
 -- ADD CATEGORIES
 INSERT INTO categories(id, name) VALUES ('000', 'Categoria Standard');
 
