@@ -70,6 +70,14 @@ public abstract class JPaymentSelect extends javax.swing.JDialog
     private String tipoDocumento = "Consumidor Final";
     private String documento = "";
 
+    public String getDocumento() {
+        return documento;
+    }
+
+    public void setDocumento(String documento) {
+        this.documento = documento;
+    }
+
     public static PaymentInfo getReturnPayment() {
         return returnPayment;
     }
