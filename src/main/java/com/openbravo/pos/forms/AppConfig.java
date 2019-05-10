@@ -336,11 +336,11 @@ public class AppConfig implements AppProperties {
         m_propsconfig.setProperty("tkt.header1", "uniCenta oPOS");
         m_propsconfig.setProperty("tkt.header2", "Touch Friendly Point Of Sale");
         m_propsconfig.setProperty("tkt.header3", "Copyright (c) 2009-2017 uniCenta");
-        m_propsconfig.setProperty("tkt.header4", "Change header text in Configuration");                
+        m_propsconfig.setProperty("tkt.header4", "Tel\\u00E9fono\\: 999 999 9999");                
         
-        m_propsconfig.setProperty("tkt.footer1", "Change footer text in Configuration");        
-        m_propsconfig.setProperty("tkt.footer2", "Thank you for your custom");
-        m_propsconfig.setProperty("tkt.footer3", "Please Call Again");
+        m_propsconfig.setProperty("tkt.footer1", "Descarga tú factura en:");        
+        m_propsconfig.setProperty("tkt.footer2", "www.allku.expert/nube");
+        m_propsconfig.setProperty("tkt.footer3", "Gracias por su visita");
 
     }
 }
