@@ -165,21 +165,18 @@
             <text align ="left" length="16" bold="true">Total.</text>
             <text align ="right" length="20" bold="true">${ticket.printTotal()}</text>
         </line>
-
+        <line></line>
         #foreach ($paymentline in $ticket.payments)
         #if ($paymentline.name == "cash")
         <line>
-            <text bold="true">Cash</text>
-        </line>
-        <line>
-            <text align="left" length="22">Tendered:</text>
+            <text bold="true" length="16">Efectivo</text>
             <text align ="right" length="20">${paymentline.printPaid()}</text>
         </line>
         #end
           	
         #if ($paymentline.name == "cashrefund")
         <line>
-            <text bold="true">Refund</text>
+            <text bold="true">Reembolso</text>
         </line>
         <line>
             <text align ="right" length="42">${paymentline.printTotal()}</text>
@@ -191,12 +188,12 @@
         #if ($ticket.hasTip())
         <line>
             <text align ="left" length="16">Tip:</text>
-            <text align ="right" length="26">£_____________</text>
+            <text align ="right" length="26">$_____________</text>
         </line>
         <line></line>
         <line size="1">
             <text align ="left" length="16" bold="true">Tip</text>
-            <text align ="right" length="26" bold="true">£_____________</text>
+            <text align ="right" length="26" bold="true">$_____________</text>
         </line>
         #else
         <line size="1">
@@ -205,7 +202,7 @@
         </line>
         #end
         <line>
-            <text bold="true">Card Payment</text>
+            <text bold="true">Tárjeta</text>
         </line>
         <line>
             <text align ="right" length="42">${paymentline.printTotal()}</text>
@@ -214,7 +211,7 @@
 
         #if ($paymentline.name == "magcardrefund")
         <line>
-            <text bold="true">Card Refund</text>
+            <text bold="true">Reembolso</text>
         </line>
         <line>
             <text align ="right" length="42">${paymentline.printTotal()}</text>
@@ -234,7 +231,7 @@
         #if ($paymentline.name == "chequerefund")
         <line></line>
         <line>
-            <text bold="true">Cheque Refund</text>
+            <text bold="true">Reembolso</text>
         </line>
         <line>
             <text align ="right" length="42">${paymentline.printTotal()}</text>
@@ -254,7 +251,7 @@
         #if ($paymentline.name == "voucherout")
         <line></line>
         <line>
-            <text bold="true">Note Refund</text>
+            <text bold="true">Reembolso</text>
         </line>
         <line>
             <text align ="right" length="42">${paymentline.printTotal()}</text>
@@ -264,7 +261,7 @@
         #if ($paymentline.name == "free")
         <line></line>
         <line>
-            <text bold="true">Free</text>
+            <text bold="true">Gratis</text>
         </line>
         <line>
             <text align ="right" length="42">${paymentline.printTotal()}</text>
@@ -274,7 +271,7 @@
         #if ($paymentline.name == "debt")
         <line></line>
         <line>
-            <text bold="true">On Account</text>
+            <text bold="true">Débito</text>
         </line>
         <line>
             <text align ="right" length="42">${paymentline.printTotal()}</text>
@@ -284,54 +281,26 @@
 
         <line></line>
         <line>
-            <text align ="left" bold="true" length="16">Nett of Tax:</text>
-            <text align ="right" length="26">${ticket.printSubTotal()}</text>
+            <text align="left" length="15">Usuario:</text>
+            <text>${ticket.printUser()}</text>
         </line>
-        <line>
-            <text align ="left" length="16">Taxes:</text>
-            <text align ="right" length="26">${ticket.printTax()}</text>
-        </line>
-        <line></line>
-
         <line></line>
         #if (${ticket.printTicketFooterLine1()} != "")
         <line>
-            <text align="center" length="42">${ticket.printTicketFooterLine1()}</text>
+            <text align="center" length="40">${ticket.printTicketFooterLine1()}</text>
         </line>  
-        <line>
-            <text>==========================================</text>
-        </line>
         #end
         #if (${ticket.printTicketFooterLine2()} != "")
         <line>
-            <text>${ticket.printTicketFooterLine2()}</text>
+            <text align="center" length="40">${ticket.printTicketFooterLine2()}</text>
         </line>
         #end
         #if (${ticket.printTicketFooterLine3()} != "")
         <line>
-            <text>${ticket.printTicketFooterLine3()}</text>
+            <text align="center" length="40">${ticket.printTicketFooterLine3()}</text>
         </line>
-        #end
-        #if (${ticket.printTicketFooterLine4()} != "")
-        <line>
-            <text>${ticket.printTicketFooterLine4()}</text>
-        </line>
-        #end
-        #if (${ticket.printTicketFooterLine5()} != "")
-        <line>
-            <text>${ticket.printTicketFooterLine5()}</text>
-        </line>
-        #end
-        #if (${ticket.printTicketFooterLine6()} != "")
-        <line>
-            <text>${ticket.printTicketFooterLine6()}</text>
-        </line>
-        #end
-        <line></line>
-        <!--        <line><barcode type="CODE128">${ticket.printId()}</barcode></line>        -->
-
+        #end               
     </ticket>
-
     <!-- unComment this block if you want to open Cashdrawer in Print Preview
     #foreach ($paymentline in $ticket.payments)
             #if ($paymentline.name == "cash")
@@ -341,5 +310,4 @@
                     <opendrawer/>
             #end
     #end -->
-
 </output>
