@@ -621,7 +621,6 @@ public abstract class JPaymentSelect extends javax.swing.JDialog
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle(AppLocal.getIntString("payment.title")); // NOI18N
-        setPreferredSize(new java.awt.Dimension(750, 127));
         setResizable(false);
 
         jPanel4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -801,8 +800,10 @@ public abstract class JPaymentSelect extends javax.swing.JDialog
         jPanel7.add(txtDocumento);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel2.setText("Razón Social");
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("<html>Razón Social<br>Apellido Nombre");
         jLabel2.setName("lblRazonSocial"); // NOI18N
+        jLabel2.setPreferredSize(new java.awt.Dimension(150, 34));
         jPanel7.add(jLabel2);
 
         txtRazonSocial.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
@@ -822,9 +823,9 @@ public abstract class JPaymentSelect extends javax.swing.JDialog
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Correo Electrónico");
+        jLabel3.setText("Correo");
         jLabel3.setName("lblCorreoElectronico"); // NOI18N
-        jLabel3.setPreferredSize(new java.awt.Dimension(140, 20));
+        jLabel3.setPreferredSize(new java.awt.Dimension(90, 20));
         jPanel7.add(jLabel3);
 
         txtCorreoElectronico.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
@@ -992,6 +993,7 @@ public abstract class JPaymentSelect extends javax.swing.JDialog
         };
 
         worker.execute();
+        radioConsumidorFinal.setSelected(true);
     }//GEN-LAST:event_m_jButtonOKActionPerformed
 
     private void m_jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m_jButtonCancelActionPerformed
